@@ -1,47 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>charity: water — Clean water changes everything</title>
+  <meta name="description" content="Join the movement bringing clean, safe water to communities who need it most. Transparent. Impact-driven. Built for action.">
+  <style>
+    :root {
+      --brand-yellow: #ffcc00;
+      --brand-black: #111111;
+      --brand-ink: #222222;
+      --brand-offwhite: #fafafa;
+      --brand-water: #78a8bc;
+      --accent-hazel: #b97a2b;
+      --text: var(--brand-black);
+      --text-muted: #4f5665;
+      --border: #e6e6e6;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --maxw: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; color: var(--text); background: white; line-height: 1.5; }
+    img { max-width: 100%; display: block; border-radius: calc(var(--radius) - 4px); }
+    a { color: var(--brand-ink); text-decoration: none; }
+    a:focus { outline: 3px solid var(--brand-yellow); outline-offset: 2px; }
+    .container { width: min(100% - 2rem, var(--maxw)); margin-inline: auto; }
+    .pill { display:inline-block; padding:.35rem .75rem; border-radius:999px; border:1px solid var(--border); background: #fff; font-size:.875rem; }
+    .btn { display:inline-block; padding:.9rem 1.1rem; border-radius: 12px; font-weight: 700; border:2px solid transparent; }
+    .btn-primary { background: var(--brand-yellow); color:#000; }
+    .btn-outline { border-color: #111; color:#111; background: transparent; }
+    header { position: sticky; top:0; z-index: 10; backdrop-filter: blur(8px); background: rgba(255,255,255,.75); border-bottom: 1px solid var(--border); }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:.85rem 0; }
+    .brand { display:flex; align-items:center; gap:.6rem; font-weight:800; }
+    .brand-mark { width:28px; height:28px; border-radius:8px; background: var(--brand-yellow); border:1px solid #000; }
+    nav ul { display:flex; gap:1rem; list-style:none; padding:0; margin:0; }
+    nav a { font-size:.95rem; color:#222; }
+    .hero { position: relative; isolation:isolate; }
+    .hero::before { content: ""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.20) 60%, rgba(255,255,255,0) 100%), url('placeholder-hero.jpg') center/cover no-repeat; z-index:-1; }
+    .hero-inner { min-height: 72vh; display:grid; place-items:center; text-align:center; padding: 4rem 0 3rem; }
+    .hero-card { background: rgba(255,255,255,.85); border:1px solid var(--border); box-shadow: var(--shadow); border-radius: 18px; padding: 2rem; max-width: 760px; }
+    .donate-strip { background: var(--brand-ink); color:#fff; padding: .85rem 0; }
+    .section { padding: 4rem 0; }
+    .grid { display:grid; gap:1rem; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .card { border:1px solid var(--border); border-radius: var(--radius); padding:1.25rem; background:#fff; box-shadow: var(--shadow); }
+    .gallery { display:grid; gap: .9rem; grid-template-columns: repeat(12, 1fr); }
+    .tile { grid-column: span 4; position:relative; overflow:hidden; border-radius: var(--radius); border: 1px solid var(--border); }
+    .tile img { width:100%; height:220px; object-fit:cover; border-radius: 0; }
+    .tile .label { position:absolute; left:.6rem; bottom:.6rem; background: rgba(0,0,0,.7); color:#fff; padding:.35rem .6rem; border-radius: 8px; font-size:.85rem; }
+    @media (max-width: 900px){ .grid-3, .grid-2 { grid-template-columns: 1fr; } .gallery .tile { grid-column: span 6; } }
+    @media (max-width: 640px){ nav ul { display:none; } .gallery .tile { grid-column: span 12; } }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
-
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top"><span class="brand-mark"></span><span>charity: water</span></a>
+      <nav><ul><li><a href="#impact">Impact</a></li><li><a href="#how">How it works</a></li><li><a href="#projects">Projects</a></li><li><a href="#faq">FAQ</a></li><li><a class="btn btn-primary" href="#donate">Donate</a></li></ul></nav>
+    </div>
+  </header>
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-card">
+        <h1>Turn your small contribution into clean water for all</h1>
+        <p>Join the movement that turns every dollar into real change — bringing clean water to communities who need it most.</p>
+        <a class="btn btn-primary" href="#donate">Donate now</a>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="impact">
+    <div class="container grid grid-3">
+      <article class="card"><img src=img/SierraLeone_2023_CG-5764.jpg><h3>100% funds projects</h3></article>
+      <!-- Improved alt text for better screen reader accessibility -->
+      <article class="card">
+        <img src=img/SierraLeone_2023_CG-3474.jpg alt="Community members, adults and children, gathered at a village water point holding jerry cans and buckets as they collect water; they smile and talk, conveying hope and pride; simple homes and dry landscape visible in the background; overlaid text reads 14M+ people served">
+        <h3>14M+ people served</h3>
+      </article>
+      <article class="card"><img src=img/Zimbabwe_2022_CG-9389.jpg alt="impact placeholder"><h3>Transparent reporting</h3></article>
+    </div>
+  </section>
+  <section class="section" id="how" style="background: var(--brand-offwhite);">
+    <div class="container grid grid-2">
+      <div>
+        <h2>How it works</h2>
+        <div class="card"><img src="placeholder-how.jpg" alt="how it works placeholder"></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="projects">
+    <div class="container">
+      <h2>Recent projects</h2>
+      <div class="gallery">
+        <article class="tile"><img src="placeholder-project1.jpg" alt="project placeholder"><span class="label">Project 1</span></article>
+        <article class="tile"><img src="placeholder-project2.jpg" alt="project placeholder"><span class="label">Project 2</span></article>
+        <article class="tile"><img src="placeholder-project3.jpg" alt="project placeholder"><span class="label">Project 3</span></article>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="testimonial">
+    <div class="container card">
+      <img src="placeholder-testimonial.jpg" alt="testimonial placeholder">
+      <blockquote>“Clean water changed our whole day.”</blockquote>
+    </div>
+  </section>
+  <section class="section" id="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <img src="placeholder-faq.jpg" alt="faq placeholder">
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <img src="placeholder-footer.jpg" alt="footer placeholder">
+      <p>© 2025 charity: water</p>
+    </div>
+  </footer>
 </body>
 </html>
+
